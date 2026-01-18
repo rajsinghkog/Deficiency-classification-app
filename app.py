@@ -42,7 +42,7 @@ try:
     with open("classes.json", "r") as f:
         CLASSES = json.load(f)
 except FileNotFoundError:
-    CLASSES = ['-K', '-N', '-P', 'Healthy'] # Fallback
+    CLASSES = ['-K', '-N', '-P', 'Full Nutrition(FN)', 'Not_Found'] # Fallback
     print("Warning: classes.json not found, using fallback.")
 
 def load_model():
@@ -104,12 +104,6 @@ def main():
                 confidence, predicted = torch.max(probabilities, 1)
                 
                 prediction_class = CLASSES[predicted.item()]
-                raw_class = CLASSES[predicted.item()]
-
-                    if raw_class == "Not_Spinach":
-             { prediction_class = "Healthy"}
-                   else:
-               {prediction_class = raw_class}
                 confidence_score = confidence.item() * 100
             
             # Results
@@ -117,7 +111,7 @@ def main():
             st.subheader("Prediction Results")
             
             # Highlight result
-            if prediction_class == "Healthy":
+            if prediction_class == "Not_Found":
                 st.warning(f"**Prediction:** {prediction_class}")
                 st.info("This does not appear to be a spinach leaf.")
             else:
@@ -139,3 +133,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
