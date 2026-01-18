@@ -41,7 +41,7 @@ def main():
             classes = json.load(f)
     except FileNotFoundError:
         print("classes.json not found, using default 5")
-        classes = ['-K', '-N', '-P', 'FN', 'Not_Spinach'] # Fallback
+        classes = ['-K', '-N', '-P', 'Full Nutrition(FN)', 'Not_Found'] # Fallback
     
     num_classes = len(classes)
     print(f"Converting model with {num_classes} classes...")
