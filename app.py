@@ -104,6 +104,12 @@ def main():
                 confidence, predicted = torch.max(probabilities, 1)
                 
                 prediction_class = CLASSES[predicted.item()]
+                raw_class = CLASSES[predicted.item()]
+
+                    if raw_class == "Not_Spinach":
+             { prediction_class = "Healthy"}
+                   else:
+               {prediction_class = raw_class}
                 confidence_score = confidence.item() * 100
             
             # Results
