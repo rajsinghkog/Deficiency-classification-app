@@ -66,8 +66,8 @@ def process_image(image):
     return transform(image).unsqueeze(0)
 
 def main():
-    st.set_page_config(page_title="Disease Classification", page_icon="🌿")
-    st.title("🌿 Disease Classification")
+    st.set_page_config(page_title="Deficiency Classification", page_icon="🌿")
+    st.title("🌿 Deficiency Classification")
     st.write("Universal Inference App: Works on Desktop & Mobile")
 
     model = load_model()
@@ -111,7 +111,7 @@ def main():
             st.subheader("Prediction Results")
             
             # Highlight result
-            if prediction_class == "Not_Spinach":
+            if prediction_class == "Not_Found":
                 st.warning(f"**Prediction:** {prediction_class}")
                 st.info("This does not appear to be a spinach leaf.")
             else:
