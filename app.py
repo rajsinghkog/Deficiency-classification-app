@@ -42,7 +42,7 @@ try:
     with open("classes.json", "r") as f:
         CLASSES = json.load(f)
 except FileNotFoundError:
-    CLASSES = ['-K', '-N', '-P', 'FN'] # Fallback
+    CLASSES = ['-K', '-N', '-P', 'Healthy'] # Fallback
     print("Warning: classes.json not found, using fallback.")
 
 def load_model():
